@@ -1,12 +1,13 @@
 import 'leaflet/dist/leaflet.css';
 import './App.css'
+import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
 import L from 'leaflet'
-import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
+import icon from "./Icon/icon.png"
+import { Rate} from "antd";
 
-function GetIcon(_iconSize) {
+function GetIcon(){
     return L.icon({
-        iconUrl: require("./Icon/icons8-маркер-40.png"),
-        iconSize: _iconSize
+        iconUrl: icon,
     })
 }
 
@@ -19,15 +20,15 @@ function App() {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position = {position} icon = {GetIcon(20)}>
+            <Marker position={position} icon = {GetIcon()}>
                 <Popup>
-                    A pretty CSS3 popup. <br/>jf
+                    <p>Some important place</p>
+                    <Rate></Rate>
                 </Popup>
             </Marker>
         </MapContainer>
     );
 }
-
 
 
 export default App;
